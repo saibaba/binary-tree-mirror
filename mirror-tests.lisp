@@ -68,3 +68,13 @@
 
 (define-test create-mirror-test1 (assert-true (is-mirror (a-tree) (create-mirror (a-tree)))))
 
+; iterative version
+
+(define-test empty-tree-test-stack (assert-true (is-mirror-stack nil nil )))
+(define-test empty-with-non-empty-1-stack (assert-false (is-mirror-stack (make-node :value 10) nil )))
+(define-test empty-with-non-empty-2-stack (assert-false (is-mirror-stack (make-node) (make-node :value 10) )))
+(define-test one-node-tree-stack (assert-true (is-mirror-stack (make-node :value 10) (make-node :value 10))))
+(define-test one-node-not-a-mirror-tree-stack (assert-false (is-mirror-stack (make-node :value 10) (make-node :value 20))))
+(define-test big-tree-test-stack (assert-true (is-mirror-stack (sample-big-tree1) (sample-big-tree2))))
+(define-test partial-tree-test1-stack (assert-true (is-mirror-stack (sample-partial-tree1) (sample-partial-tree1))))
+(define-test asym-tree-test-stack (assert-true (is-mirror-stack (sample-asym-tree1) (sample-asym-tree2))))
